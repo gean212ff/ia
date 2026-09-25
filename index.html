@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.U.R.O.R.A. - Painel de Controle de IA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Link para o CSS separado -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <header>
+      <div class="logo-group">
+        <div class="ai-orb"><div class="ai-orb-core"></div></div>
+        <div class="title-text">
+          <h1>A.U.R.O.R.A. v3.8</h1>
+          <p>Sistema Autônomo de Diagnóstico e Navegação Espacial</p>
+        </div>
+      </div>
+      <div class="status-badge"><div class="status-dot"></div>SISTEMA ATIVO</div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="glass-panel">
+        <div class="panel-header">
+          <h2>CONTROLE DE SENSORES</h2>
+          <span style="font-size: 0.75rem; color: var(--neon-cyan);">ENTRADAS</span>
+        </div>
+
+        <div class="control-group">
+          <label for="pilotoInput">Nome do Piloto Em Comando</label>
+          <input type="text" id="pilotoInput" value="Gean" placeholder="Digite o nome do piloto...">
+        </div>
+
+        <div class="control-group">
+          <div class="range-header">
+            <label for="tempInput">Temperatura do Reator</label>
+            <span class="range-value" id="tempValueDisplay">65 °C</span>
+          </div>
+          <input type="range" id="tempInput" min="0" max="150" value="65">
+        </div>
+
+        <div class="control-group">
+          <div class="range-header">
+            <label for="distInput">Distância do Obstáculo (Radar)</label>
+            <span class="range-value" id="distValueDisplay">650 m</span>
+          </div>
+          <input type="range" id="distInput" min="50" max="1200" step="10" value="650">
+        </div>
+
+        <div class="btn-group">
+          <button onclick="executarChecagemReator()">⚡ Testar Reator</button>
+          <button onclick="executarChecagemRadar()">📡 Checar Radar</button>
+          <button class="btn-full" onclick="executarRelatorioCompleto()">📄 Emitir Relatório da IA</button>
+          <button class="btn-full btn-danger" onclick="simularEmergencia()">⚠️ Simular Perigo</button>
+        </div>
+      </section>
+
+      <section class="glass-panel">
+        <div class="panel-header">
+          <h2>TELEMETRIA E LOGS</h2>
+          <span style="font-size: 0.75rem; color: var(--neon-green);">SAÍDAS</span>
+        </div>
+
+        <div class="status-cards">
+          <div class="card" id="cardReator">
+            <span class="card-title">Status do Reator</span>
+            <span class="card-status status-green" id="statusReatorTexto">ESTÁVEL</span>
+          </div>
+          <div class="card" id="cardNavegacao">
+            <span class="card-title">Navegação Evasiva</span>
+            <span class="card-status status-green" id="statusNavegacaoTexto">CURSO SEGURO</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>Terminal de Operações da A.U.R.O.R.A.</label>
+          <div class="terminal-container" id="terminalLog">
+            <div class="log-line">
+              <span class="log-time">[00:00:00]</span> 
+              <span class="log-info">[SISTEMA]: Núcleo A.U.R.O.R.A. inicializado. Aguardando comandos...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Link para o JS separado no final da página -->
+  <script src="js/script.js"></script>
+</body>
+</html>
